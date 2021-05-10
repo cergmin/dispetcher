@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <title>Диспетчер</title>
+        <link rel="stylesheet" href="./resources/styles/main.css">
+        <link rel="stylesheet" href="./resources/styles/modal.css">
+        <link rel="stylesheet" href="./resources/styles/popup.css">
+        <link rel="stylesheet" href="./resources/styles/toast.css">
+    </head>
+    <body>
+        <header>
+            <div class="wrapper">
+                <ul>
+                    <li class="logo">logo</li>
+                    <li><a href="#">Мониторинг</a></li>
+                    <li><a href="#">Схема</a></li>
+                </ul>
+                <ul>
+                    <li><a href="#">Войти</a></li>
+                </ul>
+            </div>
+        </header>
+        <div class="modal_container" id="add_detector_modal">
+            <div class="modal">
+                <div class="modal__header">
+                    <h2>Добавление нового датчика</h2>
+                    <button class="btn-icon" data-action="hideModal" data-modal-id="add_detector_modal">
+                        <img src="./resources/images/close.svg">
+                    </button>
+                </div>
+                <div class="modal__main">
+                    <p>Введите идентификатор датчика с задней стороны корпуса и&nbsp;придумайте имя.</p>
+                    <div class="input_group">
+                        <label for="detector_id">Идентификатор</label>
+                        <input type="text" id="detector_id" name="detector_id" inputmode="numeric" maxlength="19" placeholder="0000-0000-0000-0000">
+                        <span id="detector_id_infobox"></span>
+                    </div>
+                    <div class="input_group">
+                        <label>Название</label>
+                        <input type="text" id="detector_name" name="detector_name" placeholder="Датчик">
+                    </div>
+                </div>
+                <div class="modal__footer">
+                    <button class="btn-primary" data-action="addDetector">Добавить</button>
+                    <button class="btn" data-action="hideModal" data-modal-id="add_detector_modal">Отменить</button>
+                </div>
+            </div>
+        </div>
+        <main>
+            <div class="wrapper">
+                <div class="heading">
+                    <h1>Мониторинг</h1>
+                    <button class="btn-primary" data-action="showModal" data-modal-id="add_detector_modal">Добавить датчик</button>
+                </div>
+                <span class="separator"></span>
+                <div class="detectors_list">
+                    <div class="detector" data-detector-id="3241-6183-2987-4921">
+                        <svg class="detector__chart" viewBox="0 0 400 200" preserveAspectRatio="none">
+                            <path fill="url(#grayGradient)" stoke="#111" d="M 0 200 L 0 148 L 400 148 L 400 200"></path>
+                        </svg>
+                        <div class="detector__header">
+                            <span class="status yellow">подключение</span>
+                            <h2>Датчик #1</h2>
+                            <button class="btn-icon">
+                                <img src="./resources/images/kebab.svg">
+                            </button>
+                        </div>
+                        <div class="detector__footer">
+                            <h2>Нагрузка:</h2>
+                            <h2>Среднее:</h2>
+                        </div>
+                    </div>
+                    <div class="detector" data-detector-id="7894-9471-3891-4896">
+                        <svg class="detector__chart" viewBox="0 0 400 200" preserveAspectRatio="none">
+                            <path fill="url(#grayGradient)" stoke="#111" d="M 0 200 L 0 148 L 400 148 L 400 200"></path>
+                        </svg>
+                        <div class="detector__header">
+                            <span class="status yellow">подключение</span>
+                            <h2>Датчик #2</h2>
+                            <button class="btn-icon">
+                                <img src="./resources/images/kebab.svg">
+                            </button>
+                        </div>
+                        <div class="detector__footer">
+                            <h2>Нагрузка:</h2>
+                            <h2>Среднее:</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <svg width="0" height="0" style="position: absolute;">
+            <linearGradient id="blueGradient" gradientUnits="objectBoundingBox" gradientTransform="rotate(90)">
+                <stop offset="0%" stop-color="#1f42ad"/>
+                <stop offset="100%" stop-color="#0f2157"/>
+            </linearGradient>
+            <linearGradient id="grayGradient" gradientUnits="objectBoundingBox" gradientTransform="rotate(90)">
+                <stop offset="0%" stop-color="#666"></stop>
+                <stop offset="100%" stop-color="#333"></stop>
+            </linearGradient>
+        </svg>
+        <script src="./resources/scripts/icons.js"></script>
+        <script src="./resources/scripts/modal.js"></script>
+        <script src="./resources/scripts/popup.js"></script>
+        <script src="./resources/scripts/toast.js"></script>
+        <script src="./resources/scripts/main.js"></script>
+    </body>
+</html>

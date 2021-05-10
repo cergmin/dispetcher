@@ -1,0 +1,64 @@
+@keyframes showToast {
+    0% {
+        transform: translateY(-60px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.toast {
+    position: absolute;
+    top: 20px;
+    right: 0;
+    left: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    margin: 0 auto;
+    color: #fff;
+    font-size: 14px;
+    line-height: 20px;
+    background: hsl(0deg 0% 20% / 80%);
+    border: 1px solid hsl(0deg 0% 10%);
+    border-radius: 2px;
+    transform: scale(0.95);
+    opacity: 0;
+    backdrop-filter: blur(20px);
+    transition:
+        transform 0.2s ease-out,
+        opacity 0.2s ease-out;
+}
+
+.toast.visible {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+    transition:
+        transform 0s linear,
+        opacity 0s ease-out;
+    animation-name: showToast;
+    animation-duration: 0.3s;
+    animation-timing-function: cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.toast span {
+    padding: 7px 16px;
+}
+
+.toast .btn-icon {
+    width: 34px;
+    height: 34px;
+    padding: 12px;
+}
+
+.toast .btn-icon svg {
+    opacity: 0.6;
+    transition: opacity 0.15s ease-out;
+    fill: #fff;
+}
+
+.toast .btn-icon:hover svg {
+    opacity: 1;
+}
